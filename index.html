@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>luxOTO | Premium Araç İlanları</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="status-box">
+        <i id="status-icon"></i>
+        <p id="status-text"></p>
+    </div>
+
+    <header>
+        <div class="logo">lux<span>OTO</span></div>
+        <div class="header-right">
+            <div class="social-icons">
+                <a href="https://instagram.com/taha.bozdemir10" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/905526085730" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div id="auth-buttons">
+                <button class="btn btn-yellow" onclick="openModal('login-modal')">Giriş Yap</button>
+                <button class="btn btn-orange" onclick="openModal('signup-modal')">Kaydol</button>
+            </div>
+            <div id="user-menu">
+                <button class="btn btn-orange" onclick="openModal('add-ad-modal')">+ İlan Ver</button>
+                <button class="btn btn-yellow" onclick="openModal('profile-modal')">Profilim</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="left-sidebar">
+            <h3>Markalar</h3>
+            <ul class="brand-list" id="brand-filters">
+                <li onclick="renderAds(allAds)">Tümü</li>
+            </ul>
+        </aside>
+
+        <main class="center-content">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Marka veya model ara..." onkeyup="searchAds()">
+            </div>
+            <div class="ilan-grid" id="main-listings"></div>
+        </main>
+
+        <aside class="right-sidebar">
+            <h3>Öne Çıkanlar</h3>
+            <div id="right-listings"></div>
+        </aside>
+    </div>
+
+    <footer>
+        <div><i class="fas fa-map-marker-alt"></i> Şehir: Balıkesir</div>
+        <div>
+            <span class="gold-cursive">Taha Arda Bozdemir</span>
+            <span class="gold-cursive">Muhammed Fettah Karaaslan</span>
+            <span>Kağan Arda Sargın</span>
+        </div>
+    </footer>
+
+    <!-- Modallar -->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content auth-modal">
+            <span onclick="closeModal('login-modal')">&times;</span>
+            <h2>Giriş yap</h2>
+            <input type="email" id="login-email" placeholder="E-posta">
+            <input type="password" id="login-pass" placeholder="Şifre">
+            <button class="btn btn-orange" onclick="handleLogin()">Giriş yap ▶</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="signup-modal">
+        <div class="modal-content auth-modal">
+            <span onclick="closeModal('signup-modal')">&times;</span>
+            <h2>Hesap aç</h2>
+            <input type="text" id="signup-name" placeholder="İsim Soyisim">
+            <input type="email" id="signup-email" placeholder="E-posta">
+            <input type="tel" id="signup-phone" placeholder="Telefon">
+            <input type="password" id="signup-pass" placeholder="Şifre">
+            <button class="btn btn-orange" onclick="handleSignup()">Kaydol ▶</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="add-ad-modal">
+        <div class="modal-content">
+            <span onclick="closeModal('add-ad-modal')">&times;</span>
+            <h2>Yeni İlan Ver</h2>
+            <input type="text" id="ad-brand" placeholder="Marka">
+            <input type="text" id="ad-model" placeholder="Model">
+            <input type="number" id="ad-year" placeholder="Yıl">
+            <input type="number" id="ad-km" placeholder="Kilometre">
+            <input type="text" id="ad-damage" placeholder="Hasar Kaydı">
+            <input type="text" id="ad-power" placeholder="Motor Gücü">
+            <textarea id="ad-desc" placeholder="Açıklama"></textarea>
+            <input type="file" id="ad-file" accept="image/*">
+            <button class="btn btn-orange" onclick="submitNewAd()">İlanı Yayınla</button>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
