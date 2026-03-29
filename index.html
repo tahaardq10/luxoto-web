@@ -53,40 +53,40 @@
     </div>
 
     <footer>
-        <div><i class="fas fa-map-marker-alt"></i> Şehir: Balıkesir</div>
+        <div style="color:#aaa; margin-bottom:10px;"><i class="fas fa-map-marker-alt"></i> Şehir: Balıkesir</div>
         <div>
             <span class="gold-cursive">Taha Arda Bozdemir</span>
             <span class="gold-cursive">Muhammed Fettah Karaaslan</span>
-            <span>Kağan Arda Sargın</span>
+            <span style="font-weight:bold; color:white; margin:0 10px;">Kağan Arda Sargın</span>
         </div>
     </footer>
 
-    <!-- Modallar -->
+    <!-- MODALLAR -->
     <div class="modal-overlay" id="login-modal">
         <div class="modal-content auth-modal">
-            <span onclick="closeModal('login-modal')">&times;</span>
+            <span class="close-btn" onclick="closeModal('login-modal')">&times;</span>
             <h2>Giriş yap</h2>
             <input type="email" id="login-email" placeholder="E-posta">
             <input type="password" id="login-pass" placeholder="Şifre">
-            <button class="btn btn-orange" onclick="handleLogin()">Giriş yap ▶</button>
+            <button class="btn btn-orange" onclick="handleLogin()">Giriş yap</button>
         </div>
     </div>
 
     <div class="modal-overlay" id="signup-modal">
         <div class="modal-content auth-modal">
-            <span onclick="closeModal('signup-modal')">&times;</span>
+            <span class="close-btn" onclick="closeModal('signup-modal')">&times;</span>
             <h2>Hesap aç</h2>
             <input type="text" id="signup-name" placeholder="İsim Soyisim">
             <input type="email" id="signup-email" placeholder="E-posta">
-            <input type="tel" id="signup-phone" placeholder="Telefon">
+            <input type="tel" id="signup-phone" placeholder="Telefon (5XXXXXXXXX)">
             <input type="password" id="signup-pass" placeholder="Şifre">
-            <button class="btn btn-orange" onclick="handleSignup()">Kaydol ▶</button>
+            <button class="btn btn-orange" onclick="handleSignup()">Kaydol</button>
         </div>
     </div>
 
     <div class="modal-overlay" id="add-ad-modal">
         <div class="modal-content">
-            <span onclick="closeModal('add-ad-modal')">&times;</span>
+            <span class="close-btn" onclick="closeModal('add-ad-modal')">&times;</span>
             <h2>Yeni İlan Ver</h2>
             <input type="text" id="ad-brand" placeholder="Marka">
             <input type="text" id="ad-model" placeholder="Model">
@@ -100,8 +100,16 @@
         </div>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js"></script>
-    <script src="main.js"></script>
+    <div class="modal-overlay" id="profile-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('profile-modal')">&times;</span>
+            <h2>Profilim</h2>
+            <p id="prof-user-info"></p>
+            <button class="btn btn-orange" onclick="showFavorites()">Favorilerim</button>
+            <button class="btn btn-red" onclick="logout()">Çıkış Yap</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
